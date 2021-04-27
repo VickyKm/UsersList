@@ -28,7 +28,7 @@ public class CreateStudentController {
    return "Student " + student.getName() + " Successfully";	
 	}
 	
-	@DeleteMapping(path="/createUser/{id}")
+	@DeleteMapping(path="/deleteUser/{id}")
 	public String  deleteStudent(@PathVariable("id") String id) {
 		
 		createStudentDao.deleteUser(id);
@@ -36,7 +36,7 @@ public class CreateStudentController {
 		
 	}
 	
-	@PutMapping(path="/createUser/{id}")
+	@PutMapping(path="/updateUser/{id}")
 	public String updateStudent(@RequestBody CreateStudent student,@PathVariable("id") String id) {
 		createStudentDao.updateUser(student.getName(),student.getId());
 		return "student " + student.getName() + " Updated Successfully"; 
