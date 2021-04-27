@@ -2,7 +2,12 @@ package com.vicky.springbootdemo.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +18,28 @@ public class CreateStudentController {
 	CreateStudentDAO createStudentDao;
 	
 	@PostMapping(path = "/createUser")
-	public String createStudent(@RequestParam String id, @RequestParam String name, @RequestParam String email) {
-		
-		createStudentDao.addUser(id,name,email);
-		return "Student " + name + " added successfully";
+	public String createStudentDao(@RequestBody Student student) {
+	
+		//createStudentDao.addUser(id,name,gender,);
+		createStudentDao.addUser(student.getName(),student.getGender(), student.getEmail(), student.getDept(), student.getCgpa(), student.getPlacement(), student.getArrears());
+		return "Student " + student.getName() + " added successfully";
 	}
+	
+	
+	@DeleteMapping(path="/deleteuser/{id}")
+	public String deleteStudent(@PathVariable String id) {
+		createStudentDao.deleteuser(id);
+		return "Student " + id + " deleted successfully";
+	}
+	
+	
+	
+	@PostMapping(path="/updateuser/{id}")
+    public String updateUser(@PathVariable String id, @RequestBody Student student){
+        createStudentDao.updateUser(student.getName(), student.getGender(), student.getEmail(), student.getDept(), student.getCgpa(), student.getPlacement(), student.getArrears(), id);
+        return "Student " + id + " updated successfully";
+    }
 }
+
+
+

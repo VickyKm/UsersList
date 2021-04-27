@@ -1,6 +1,6 @@
 create table student
 (
-   id integer not null,
+   id integer not null  AUTO_INCREMENT,
    name varchar(255) not null,
    gender varchar(10),
    email varchar(255) not null,
