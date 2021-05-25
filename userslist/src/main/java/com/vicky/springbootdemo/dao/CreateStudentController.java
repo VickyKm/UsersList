@@ -32,14 +32,49 @@ public class CreateStudentController {
 	public String  deleteStudent(@PathVariable("id") String id) {
 		
 		createStudentDao.deleteUser(id);
-		return "student " + id + "  deleted  successfully";
+		return "student " + id + "  deleted  successfully"; 
 		
 	}
+	
+	//NamedParameter
+	@DeleteMapping(path="/deleteUser1/{id}")
+	public String  deleteStudent1(@PathVariable("id") String id) {
+		
+		createStudentDao.deleteUser1(id);
+		return "student " + id + "  deleted  successfully"; 
+		
+	}
+	
+	//PreparedStatementSetter
+	@DeleteMapping(path="/deleteUser2/{id}")
+	public String  deleteStudent2(@PathVariable("id") String id) {
+		
+		createStudentDao.deleteUser2(id);
+		return "student " + id + "  deleted  successfully"; 
+		
+	}
+	
 	
 	@PutMapping(path="/updateUser/{id}")
 	public String updateStudent(@RequestBody CreateStudent student,@PathVariable("id") String id) {
 		createStudentDao.updateUser(student.getName(),student.getId());
 		return "student " + student.getName() + " Updated Successfully"; 
 		}
+	
+	
+	//NamedParameter
+		@PutMapping(path="/updateUser1/{id}")
+	public String updateStudent1(@RequestBody CreateStudent student,@PathVariable("id") String id) {
+		createStudentDao.updateUser1(student.getName(),student.getId());
+		return "student " + student.getName() + " Updated Successfully"; 
+		}
+	
+	//PreparedStatementSetter
+	@PutMapping(path="/updateUser2/{id}")
+	public String updateStudent2(@RequestBody CreateStudent student,@PathVariable("id") String id) {
+		createStudentDao.updateUser2(student.getName(),student.getId());
+		return "student " + student.getName() + " Updated Successfully"; 
+		}
+	
 	
 }
