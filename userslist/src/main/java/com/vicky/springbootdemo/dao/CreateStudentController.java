@@ -1,16 +1,25 @@
 package com.vicky.springbootdemo.dao;
 
 import com.vicky.springbootdemo.pojo.*;
+
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -75,6 +84,31 @@ public class CreateStudentController {
 		createStudentDao.updateUser2(student.getName(),student.getId());
 		return "student " + student.getName() + " Updated Successfully"; 
 		}
+	
+	
+	
+	
+	
+	 @GetMapping("/Students")
+    public List<CreateStudent> findAllStudents(){
+        List<CreateStudent> list = createStudentDao.findAllStudents();
+        return list;
+    }
+	
+	
+	
+	@GetMapping(path="/Students/{name}")
+	public ResponseEntity<CreateStudent> findName(@PathVariable("name") String name){
+		
+		CreateStudent student = createStudentDao.findName(name);
+		
+		
+		return ResponseEntity.status(HttpStatus.OK).body(student);
+		
+	}
+	
+	
+
 	
 	
 }

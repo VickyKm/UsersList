@@ -1,9 +1,12 @@
 package com.vicky.springbootdemo.dao;
-
+import com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap;
+import java.io.Serializable;
+import com.vicky.springbootdemo.pojo.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -11,6 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -36,8 +40,11 @@ public class CreateStudentDAO {
 	@Value("${createuser.query}")
 	String insertQuery;
 	
+	@Value("${getuser.query}")
+	String getUsersQuery;
 	
-
+	@Value("${getstudent.query}")
+	String getStudentQuery;
 	
 	public void addUser(String name, String gender, String email, String dept, String cgpa,  String placement, String arrears) {
 		
@@ -116,6 +123,32 @@ public class CreateStudentDAO {
 			}
 		});
 	}
+
+
+
+
+public CreateStudent findName(String name) {
+	
+	return jdbctemplate.queryForObject(getStudentQuery, BeanPropertyRowMapper.newInstance(CreateStudent.class),name );
+}
+
+
+
+
+
+
+public List<CreateStudent> findAllStudents() {
+	
+	List<CreateStudent> students=jdbctemplate.query(getUsersQuery, new BeanPropertyRowMapper(CreateStudent.class));
+	
+	return students;
+}
+
+
+
+
+
+	
 	 
 	
 	
