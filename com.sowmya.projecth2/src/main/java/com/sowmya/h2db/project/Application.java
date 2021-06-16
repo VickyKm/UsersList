@@ -1,13 +1,13 @@
-package com.vicky.springbootdemo;
+package com.sowmya.h2db.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootDemo {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootDemo.class, args);
+		SpringApplication.run(Application.class, args);
 	}
-	
+
 }

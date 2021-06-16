@@ -1,10 +1,10 @@
-package com.vicky.myaccessdemo;
+package com.sowmya.h2db.project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AccessdemoApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
