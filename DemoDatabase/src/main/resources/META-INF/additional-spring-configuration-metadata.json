@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "insert.query",
+    "type": "java.lang.String",
+    "description": "A description for 'insert.query'"
+  },
+  {
+    "name": "update.query",
+    "type": "java.lang.String",
+    "description": "A description for 'update.query'"
+  },
+  {
+    "name": "delete.query",
+    "type": "java.lang.String",
+    "description": "A description for 'delete.query'"
+  },
+  {
+    "name": "getStudentById.query",
+    "type": "java.lang.String",
+    "description": "A description for 'getStudentById.query'"
+  },
+  {
+    "name": "get.query",
+    "type": "java.lang.String",
+    "description": "A description for 'get.query'"
+  },
+  {
+    "name": "getall.query",
+    "type": "java.lang.String",
+    "description": "A description for 'getall.query'"
+  }
+]}
