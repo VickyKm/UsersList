@@ -40,12 +40,12 @@ public class StudentDao {
 	
 	public void insertValue(Student stud) {
         jdbcTemplate.update(insert, stud.getId(), stud.getName(),
-                stud.getAge(), stud.getGender(), stud.getEmail(), stud.getDepartment(),stud.getCity());
+                stud.getGender(), stud.getEmail(), stud.getDepartment(),stud.getCgpa(), stud.getPlacement(), stud.getArrears());
         System.out.println("The name is of the added entry is"+" "+stud.getName());
     }
 	public void updateValue(Integer id,Student stud) {
 		jdbcTemplate.update(update,stud.getId(), stud.getName(),
-                stud.getAge(), stud.getGender(), stud.getEmail(), stud.getDepartment(),stud.getCity(),id);
+                stud.getGender(), stud.getEmail(), stud.getDepartment(),stud.getCgpa(), stud.getPlacement(), stud.getArrears() ,id);
 		System.out.println("Updated Record with ID = " + stud.getId() );
 	}
 	public void deleteValue(Integer id,Student stud) {
@@ -68,8 +68,8 @@ public class StudentDao {
 	public Student getValue(Integer id) {
 		Student student = (Student) jdbcTemplate.query(get, new StudentMapper(),id ).get(0);
 		    return student;
-	}
-	public List<Student> getAllValue(){
+	} 
+	public List<Student> getAllValue(){  
 		  return (jdbcTemplate.query(getall,
 		   new BeanPropertyRowMapper<Student>(Student.class)));
 		}

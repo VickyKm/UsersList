@@ -4,13 +4,14 @@ public class Student {
 
 	private Integer id;
 	private String name;
-	private Integer age;
-	private char gender;
+	private String gender;
 	private String email;
 	private String department;
-	private String city;
+	private double cgpa;
+	private String placement;
+	private Integer arrears;
 	public Integer getId() {
-		return id; 
+		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
@@ -18,20 +19,20 @@ public class Student {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) { 
+		this.name = name; 
 	}
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Integer getAge() {
-		return age;
+	public String getEmail() {
+		return email;
 	}
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getDepartment() {
 		return department;
@@ -39,16 +40,22 @@ public class Student {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public String getCity() {
-		return city;
+	public double getCgpa() {
+		return cgpa;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setCgpa(double cgpa) {
+		this.cgpa = cgpa;
 	}
-	public String getEmail() {
-		return email;
+	public String getPlacement() {
+		return placement;
 	}
-	public void setEmailId(String email) {
-		this.email = email;
+	public void setPlacement(String placement) {
+		this.placement = placement;
 	}
+	public Integer getArrears() {
+		return arrears;
+	}
+	public void setArrears(Integer arrears) {
+		this.arrears = arrears;
+	} 
 }

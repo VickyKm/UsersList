@@ -12,11 +12,12 @@ public class StudentMapper implements RowMapper<Object> {
   Student student = new Student();  
   student.setId(rs.getInt("id"));  
   student.setName(rs.getString("name"));  
-  student.setAge(rs.getInt("age"));  
-  student.setGender(rs.getString("gender").charAt(0));
-  student.setEmailId(rs.getString("email"));
+  student.setGender(rs.getString("gender")); 
+  student.setEmail(rs.getString("email"));
   student.setDepartment(rs.getString("department"));
-  student.setCity(rs.getString("city")); 
+  student.setCgpa(rs.getDouble("cgpa"));
+  student.setPlacement(rs.getString("placement"));
+  student.setArrears(rs.getInt("arrears"));
   return student;  
  }  
 }  
